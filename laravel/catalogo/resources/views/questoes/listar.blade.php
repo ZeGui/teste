@@ -1,11 +1,11 @@
 @extends('layout.master')
 
-@section('title','Lista de Produtos')
+@section('title','Lista de Questões')
 
 @section('content')
     <div class="row">
         <div class=" col-12 text-right" style="margin-bottom: 15px;">
-                <a href="/produtos/adicionar" class="btn btn-primary">Adicionar</a>
+                <a href="/questoes/adicionar" class="btn btn-primary">Adicionar</a>
         </div>
 
     </div>
@@ -13,20 +13,18 @@
         <thead>
             <th>id</th>
             <th>descrição</th>
-            <th>valor</th>
 
             <th>ações</th>
         </thead>
         <tbody>
-            @foreach ($produtos as $produto)
+            @foreach ($questoes as $questao)
             <tr>
-                <td>{{$produto->id}}</td>
-                <td>{{$produto->descricao}}</td>
-                <td>{{$produto->valor}}</td>
+                <td>{{$questao->id}}</td>
+                <td>{{$questao->descricao}}</td>
                 <td>
                     <a class="btn btn-sm btn-secondary" href="#">Alterar</a>
                     <a class="btn btn-sm btn-info" href="#">Visualizar</a>
-                        <a class="btn btn-sm btn-danger" href="/produtos/remover/{{$produto->id}}">Remover</a>
+                        <a class="btn btn-sm btn-danger" href="/produtos/remover/{{$questao->id}}">Remover</a>
 
 
                 </td>

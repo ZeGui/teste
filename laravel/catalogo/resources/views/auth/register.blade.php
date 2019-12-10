@@ -29,6 +29,14 @@
         @enderror
     </div>
 
+    <div class="form-group">
+        <label for="tipo">Tipo</label>
+        <input type="text" class="form-control" name="tipo" value="{{ old('tipo') }}"/>
+        @error('tipo')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
     {{-- @if ($errors->any())
         <div>
             <ul>

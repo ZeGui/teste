@@ -1,9 +1,9 @@
 @extends('layout.master')
 
-@section('title','Cadastro de Produtos')
+@section('title','Cadastro de Questoes')
 
 @section('content')
-    <form method="post" action="/produtos">
+    <form method="post" action="/questoes">
     @csrf
     <div class="form-group">
         <label for="descricao">Descrição</label>
@@ -11,18 +11,6 @@
         @error('descricao')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
-    </div>
-    <div class="form-group">
-        <label for="valor">Valor (R$)</label>
-        <input type="text" class="form-control" name="valor" value="{{ old('valor') }}"/>
-    </div>
-    <div class="form-group">
-        <label for="detalhes">Detalhes</label>
-        <input type="text" class="form-control" name="detalhes" value="{{ old('detalhes') }}"/>
-    </div>
-    <div class="form-group">
-        <label for="foto">Foto</label>
-        <input type="text" class="form-control" name="foto" value="{{ old('foto') }}"/>
     </div>
 
     @if ($errors->any())

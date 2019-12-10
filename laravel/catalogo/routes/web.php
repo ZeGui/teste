@@ -15,21 +15,28 @@ Route::get('/', function () {
     return view('front');
 });
 
-Route::get('/login', [ 'as' => 'login', 'uses' => 'AuthController@login']);
-Route::post('/authenticate','AuthController@authenticate');
+// Route::get('/login', [ 'as' => 'login', 'uses' => 'AuthController@login']);
+// Route::post('/authenticate','AuthController@authenticate');
 
-Route::get('/register', function () {
+    Route::get('/register', function () {
     return view('auth.register');
-});
-Route::post('/register','AuthController@storeUser');
+    });
+    Route::post('/register','AuthController@storeUser');
 
-//Route::group(['middleware'=>'auth'],function(){
-    Route::get('/produtos', 'ProdutosController@index');
-    Route::get('/produtos/remover/{id}', 'ProdutosController@remover');
-    Route::post('/produtos', 'ProdutosController@gravar');
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('/questoes', 'QuestoesController@index');
+    Route::get('/disciplinas', 'DisciplinaController@index');
+    //Route::get('/produtos/remover/{id}', 'ProdutosController@remover');
+    Route::post('/questoes', 'QuestoesController@gravar');
+    Route::post('/disciplinas', 'DisciplinaController@gravar');
+    
 
-    Route::get('/produtos/adicionar', function () {
-        return view('produtos.adicionar');
+    Route::get('/questoes/adicionar', function () {
+        return view('questoes.adicionar');
     });
 
-//});
+    Route::get('/disciplinas/adicionar', function () {
+        return view('disciplinas.adicionar');
+    });
+
+});

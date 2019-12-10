@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnToProdutos extends Migration
+class CreateDisciplinasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddColumnToProdutos extends Migration
      */
     public function up()
     {
-        // Schema::table('produtos', function (Blue$table->string('detalhes', 500)->nullable();print $table) {
-            
-        // });
+        Schema::create('disciplinas', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nome', 500);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,8 +27,6 @@ class AddColumnToProdutos extends Migration
      */
     public function down()
     {
-        Schema::table('produtos', function (Blueprint $table) {
-            $table->dropColumn('detalhes');
-        });
+        Schema::dropIfExists('disciplinas');
     }
 }

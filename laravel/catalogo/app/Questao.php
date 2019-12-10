@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produto extends Model
+
+class Questao extends Model
 {
 
     protected $fillable = [
-        'descricao', 'valor', 'detalhes', 'foto'
+        'enunciado', 'respostaCerta', 'disciplina_id'
     ];
 
 }
