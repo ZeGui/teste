@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlternativasTable extends Migration
+class AddForeignAlternativasToTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateAlternativasTable extends Migration
      */
     public function up()
     {
-        Schema::create('alternativas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('resposta', 500);
-            $table->timestamps();
+        Schema::table('alternativas', function (Blueprint $table) {
+            $table->Biginteger('questao_id')->unsigned();
+            $table->foreign('questao_id')->references('id')->on('questaos');
         });
     }
 
@@ -27,6 +26,8 @@ class CreateAlternativasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alternativas');
+        Schema::table('table', function (Blueprint $table) {
+            //
+        });
     }
 }

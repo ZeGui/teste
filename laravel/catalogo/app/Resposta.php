@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Respostas extends Model
 {
     protected $fillable = [
-        'enunciado', 'valor', 'detalhes', ''
+        'rCerta',
+        'questao_id',
+        'user_id',
+        'respostaUsu'
+
     ];
 }

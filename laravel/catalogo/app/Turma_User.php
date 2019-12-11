@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Disciplina extends Model
+class Turma_User extends Model
 {
     protected $fillable = [
-        'nome'
+        'turma_id', 'user_id'
     ];
-
-
 }

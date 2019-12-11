@@ -15,9 +15,11 @@ class AuthController extends Controller
     public function authenticate(LoginRequest $request){
         $data = $request->all();
         if (Auth::attempt($data)){
-
+            if(1 == $data){
+                return view('questoes.listar', compact('questoes'));
+            }
         } else {
-            
+            return view("auth.login");
         }
     }
 

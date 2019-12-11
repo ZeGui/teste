@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title','Lista de Questões')
+@section('title','Questionario')
 
 @section('content')
     <div class="row">

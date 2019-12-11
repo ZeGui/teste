@@ -3,16 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Questao;
+use App\Disciplina;
+use App\Alternativa;
 class QuestoesController extends Controller
 {
     public function index()
     {
-        $questoes =  Questao::where('id','>=','1')->get();
+    // if(1 == auth()->user()->tipo)
+    // {
+
+        
+        $questoes = Questao::all();
+        foreach($questoes as $questao){
+            $respostas = Alternativa::where('questao_id',$questao->id)->get();
+            $questao['respostas'] = $respostas;
+        }
+    //  dd($questoes);
         return view('questoes.listar', compact('questoes'));
-        // $questoes =  Questao::all();
-        // return view('questoes.listar', compact('questoes'));
-    }
+        
+    // }
+    // else
+    // {
+    //     return view("auth.login");
+    // }
+}
 
     public function gravar(Request $request)
     {
@@ -34,6 +50,6 @@ class QuestoesController extends Controller
 
         $q = Questao::create($data);
         //dd($p);
-        return redirect('/questoes');
+        return redirect('/questoes.adicionarAlternativas');
     }
 }

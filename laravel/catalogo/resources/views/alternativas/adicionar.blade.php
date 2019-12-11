@@ -6,9 +6,9 @@
     <form method="post" action="/questoes">
     @csrf
     <div class="form-group">
-        <label for="enunciado">Descrição</label>
-        <input type="text" class="form-control" name="enunciado" value="{{ old('enunciado') }}"/>
-        @error('enunciado')
+        <label for="resposta">Descrição</label>
+        <input type="text" class="form-control" name="resposta" value="{{ old('resposta') }}"/>
+        @error('resposta')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>

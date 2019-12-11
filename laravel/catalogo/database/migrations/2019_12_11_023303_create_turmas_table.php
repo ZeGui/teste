@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlternativasTable extends Migration
+class CreateTurmasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateAlternativasTable extends Migration
      */
     public function up()
     {
-        Schema::create('alternativas', function (Blueprint $table) {
+        Schema::create('turmas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('resposta', 500);
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateAlternativasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alternativas');
+        Schema::dropIfExists('turmas');
     }
 }
