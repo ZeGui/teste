@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [ 'as' => 'login', 'uses' => 'AuthController@login']);
-// Route::post('/authenticate','AuthController@authenticate');
+Route::post('/authenticate','AuthController@authenticate');
 
     Route::get('/register', function () {
     return view('auth.register');
@@ -28,6 +28,7 @@ Route::get('/login', [ 'as' => 'login', 'uses' => 'AuthController@login']);
     Route::get('/produtos/remover/{id}', 'QuestoesController@remover');
     Route::get('/questoes', 'QuestoesController@index');
     Route::get('/alternativas', 'AlternativaController@index');
+    PEDRO
     Route::get('/questoes/adicionar', function () {
         return view('questoes.adicionar');
     });
@@ -39,4 +40,5 @@ Route::get('/login', [ 'as' => 'login', 'uses' => 'AuthController@login']);
 
     Route::post('/questoes', 'QuestoesController@gravar');
     Route::post('/disciplinas', 'DisciplinaController@gravar');
-    Route::post('/alternativas', 'AlternativaController@gravar');
+    Route::get('/alternativas.adicionar', 'AlternativaController@index');
+    Route::post('/alternativas.adicionar', 'AlternativaController@gravar');
