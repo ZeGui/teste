@@ -12,16 +12,8 @@ class AlternativaController extends Controller
 
     public function index()
     {
-        // $questoes = Questao::all();
-        // foreach($questoes as $questao){
-        //     $respostas = Alternativa::where('questao_id',$questao->id)->get();
-        //     $i = 1;
-        //     foreach($respostas as $resposta){
-        //         $questao["resposta$i"] = $resposta->resposta;
-        //         i++;
-        //     }
-        // }
-        return view('alternativas.listar', compact('alternativas'));
+        $alternativas = Alternativa::where('id','>=','1')->get();
+        return view('alternativas.adicionar', compact('alternativas'));
         // $questoes =  Questao::all();
         // return view('questoes.listar', compact('questoes'));
     }
@@ -36,7 +28,7 @@ class AlternativaController extends Controller
         ]);
 
         $data = $request->all();
-        //dd($data);
+        
 
         // $p = new Produto();
         // $p->descricao = $data['descricao'];

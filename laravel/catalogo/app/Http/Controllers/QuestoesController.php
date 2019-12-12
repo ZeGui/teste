@@ -35,7 +35,8 @@ class QuestoesController extends Controller
         $request->flash();//permite o funcionamento do {{old}}
 
         $request->validate([
-            'descricao' => 'required'
+            'enunciado' => 'required',
+                'disciplina_id' => 'required'
         ]);
 
         $data = $request->all();
@@ -49,7 +50,8 @@ class QuestoesController extends Controller
         // $p->save();
 
         $q = Questao::create($data);
+        $id = $q->id;
         //dd($p);
-        return redirect('/questoes.adicionarAlternativas');
+        return redirect('/alternativas.adicionar');
     }
 }
